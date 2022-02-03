@@ -61,10 +61,10 @@ class Worker extends \Illuminate\Queue\Worker
                     $this->log('Rate limit is reached for queue ' . $queue . '. Next job will be started in ' . $availableIn . ' seconds');
                     continue;
                 } else {
-                    $this->log('Rate limit check is passed for queue ' . $queue);
+                    //$this->log('Rate limit check is passed for queue ' . $queue);
                 }
             } else {
-                $this->log('No rate limit is set for queue ' . $queue . '.');
+                //$this->log('No rate limit is set for queue ' . $queue . '.');
             }
 
             $job = parent::getNextJob($connection, $queue);
@@ -75,7 +75,7 @@ class Worker extends \Illuminate\Queue\Worker
                 $this->log('Running job ' . $job->getJobId() . ' on queue ' . $queue);
                 break;
             } else {
-                $this->log('No available jobs on queue ' . $queue);
+                //$this->log('No available jobs on queue ' . $queue);
             }
         }
         return $job;
